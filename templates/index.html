@@ -1,0 +1,225 @@
+{% extends "base.html" %} {% block title %}This is an example page{% endblock %}
+{% block navbar %}
+<div class="navbar navbar-fixed-top">
+  <!-- ... -->
+</div>
+{% endblock %} {% block body %}
+<div class="container">
+  <div class="row my-3">
+    <div class="col-12">
+      <img
+        src="{{url_for('static', filename='images/Logo.png')}}"
+        class="main-logo-img"
+        alt="logo"
+      />
+    </div>
+    <div class="row my-3">
+      <div class="col-3">
+        <img
+          src="{{url_for('static', filename='images/me.png')}}"
+          class="card-img-top image-me-main"
+          alt="logo"
+        />
+      </div>
+      <div class="col-9">
+        <div class="card card-shadow" id="aboutMe">
+          <div class="card-body">
+            <h5 class="card-title">About Me</h5>
+            <p class="card-text">
+              I am a book nerd that loves grammar so much, I turned it into a
+              career. I have a Certificate of Excellence in proofreading, and
+              provide proofreading and beta reading services. I specialize in
+              fantasy fiction, but work with all genres. I have experience
+              working with CMOS, APA, and MLA styles.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row my-3">
+    <div class="col">
+      <div class="card card-shadow" id="packages">
+        <div class="card-body">
+          <h5 class="card-title">Packages</h5>
+          <ul class="card-text">
+            <li>
+              <b>Basic Proofreading:</b> Great for essays, children’s books, and
+              business proposals. $18 per 2500 words, up to 7500 words. Checks
+              for grammar, spelling, typos, and punctuation.
+            </li>
+            <li>
+              <b>Long-term Proofreading:</b> Great for longer works like novels,
+              biographies, and other long-form writing. $20 per 3,000 words, no
+              limit. Checks for grammar, spelling, typos, and punctuation.
+            </li>
+            <li>
+              <b>Beta Reading:</b> Works for most writing you plan on
+              publishing. $15 per 5,000 words. Reviews material from the
+              viewpoint of potential readers.
+            </li>
+            <li>
+              <b>Custom packs Beta and Proof Reading:</b> $30 per 3,000 words.
+              Combines basic proofreading and beta reading, with no limit on
+              length.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row my-3">
+    <div class="col">
+      <div class="card card-shadow" id="pricing">
+        <div class="card-body">
+          <h5 class="card-title">Ready to work together? Email me!</h5>
+          <form
+            action="https://formsubmit.co/elishasproofreading@gmail.com"
+            method="POST"
+          >
+            <div class="row">
+              <div class="mb-3 col-auto">
+                <label for="fromEmailAddress" class="form-label"
+                  >Your Email Address</label
+                >
+                <input
+                  class="form-control"
+                  type="email"
+                  id="fromEmailAddress"
+                  name="email"
+                  required
+                />
+              </div>
+              <div class="mb-3 col-auto">
+                <label for="fName" class="form-label">First Name</label>
+                <input
+                  type="text"
+                  id="fName"
+                  class="form-control"
+                  name="first name"
+                  required
+                />
+              </div>
+              <div class="mb-3 col-auto">
+                <label for="lName" class="form-label">Last Name</label>
+                <input
+                  type="text"
+                  id="lName"
+                  class="form-control"
+                  name="last name"
+                  required
+                />
+              </div>
+              <div class="mb-3 col-auto">
+                <label for="packageType" class="form-label"
+                  >Package Requested</label
+                >
+                <select
+                  class="form-select"
+                  id="packageType"
+                  aria-label="Default select example"
+                  name="package"
+                >
+                  <option selected>Please Choose A Package</option>
+                  <option value="Basic">Basic Proofreading</option>
+                  <option value="Long-term">Long-term Proofreading</option>
+                  <option value="Beta">Beta Reading</option>
+                  <option value="Custom">
+                    Custom packs Beta and Proof Reading
+                  </option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="questionsOnPackages" class="form-label"
+                  ><h6>Tell me about your work!</h6></label
+                >
+                <h6>
+                  Please anwser the following questions based on the package
+                  selected.
+                </h6>
+                <ul>
+                  <li>
+                    <b>Basic Proofreading</b>
+                    <ul>
+                      <li>Is this a college/school essay?</li>
+                      <li>If yes, which manual of style are you using?</li>
+                      <li>
+                        If no, are you using the Chicago Manual, or a different
+                        manual of style?
+                      </li>
+                      <li>What is the word count?</li>
+                    </ul>
+                  </li>
+                </ul>
+                <ul>
+                  <li>
+                    <b>Long-term proofreading</b>
+                    <ul>
+                      <li>Has this been through the editing process?</li>
+                      <li>Is this an early draft, or has it been revised?</li>
+                      <li>How many words are in this document?</li>
+                      <li>
+                        Are you using a different style from the CMOS, and if
+                        so, which one?
+                      </li>
+                      <li>What genre is the manuscript?</li>
+                    </ul>
+                  </li>
+                </ul>
+                <ul>
+                  <li>
+                    <b>Beta Reading</b>
+                    <ul>
+                      <li>How many words is the document?</li>
+                      <li>What genre?</li>
+                    </ul>
+                  </li>
+                </ul>
+                <textarea
+                  class="form-control"
+                  id="questionsOnPackages"
+                  name="Package Questions"
+                  rows="3"
+                ></textarea>
+              </div>
+            </div>
+            <div class="d-grid gap-2 col-6 mx-auto">
+              <button class="btn btn-success" type="submit">Send it!</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row my-3">
+    <div class="col-12 d-flex justify-content-center">
+      <div class="card card-shadow" id="socials">
+        <div class="card-body">
+          <h5 class="card-title">Find Me Everywhere!</h5>
+          <div class="d-flex justify-content-center">
+            <ul class="fa-ul">
+              <li class="">
+                <i class="fa-li fa fa-facebook"></i
+                ><a
+                  href="https://m.facebook.com/#!/search/top/?q=elisha's%20proofreading&tsid=0.08166338297059883&source=result"
+                  >Facebook</a
+                >
+              </li>
+              <li class="">
+                <i class="fa-li fa fa-twitter"></i
+                ><a href="https://twitter.com/Elishawillread">Twitter</a>
+              </li>
+              <li class="">
+                <i class="fa-li fa fa-linkedin"></i
+                ><a href="https://www.linkedin.com/in/elisha-scott-b26030267/"
+                  >LinkedIn</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
